@@ -73,5 +73,3 @@ export default defineConfig([
   },
 ])
 ```
-# bulbasaur-garden
-# bulbasaur-garden
