@@ -1,11 +1,12 @@
-import Navbar from "@/src/components/Navbar";
+import Header from "@/src/components/Header/Header";
 import Footer from "@/src/components/Footer";
+import "./globals.css";
 
 export default function RootLayout({children}: Readonly <{children: React.ReactNode;}>) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
+        <Header />
         {children}
         <Footer />
       </body>
