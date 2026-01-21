@@ -1,96 +1,47 @@
 "use client"
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { default as logo } from '../Header/assets/logo.png';
 import { default as menu } from '../Header/assets/menu.svg';
 import { default as cross } from '../Header/assets/cross.svg';
 
-const links = [
-  { href: '/', label: 'Inicio' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-];
-
 export default function Navbar() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const [changeIconMenu, setChangeIconMenu] = useState(true)
+
+  const handleShowNavbar = () => { setShowNavbar(!showNavbar) }
+  const handleChangeIconMenu = () => { setChangeIconMenu(!changeIconMenu) }
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-red border-b border-gray-200">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-        
-        {/* Logo */}
-        <Link href="/" className="text-lg font-bold">
-          MyApp
-        </Link>
+    <header className=" flex justify-between text-white bg-emerald-950 relative mx-4 mt-4 mb-0">
+      <Image src={logo} alt="Logo" width={150} height={50} />
+      <nav className="flex" onClick={() => { handleShowNavbar(); handleChangeIconMenu(); }}>
 
-        {/* Desktop menu */}
-        <ul className="hidden md:flex gap-6">
-          {links.map((link) => {
-            const isActive = pathname === link.href;
-
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors
-                    ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}
-                  `}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        {/* Mobile button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100"
-          aria-label="Abrir menú"
-        >
-          {/* Icono hamburguesa */}
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
-          <ul className="flex flex-col gap-2 px-4 py-4">
-            {links.map((link) => {
-              const isActive = pathname === link.href;
-
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className={`block rounded-md px-3 py-2 text-sm font-medium
-                      ${isActive
-                        ? 'bg-blue-50 text-blue-600'
-                        : 'text-gray-700 hover:bg-gray-100'}
-                    `}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
+        <div className='hidden sm:flex'>
+          <ul className='flex gap-8 items-center p-4'>
+            <Link href="/">Inicio</Link>
+            <Link href="/Garden">Jardín</Link>
+            <Link href="/Pokedex">Pokedex</Link>
+            <Link href="/Contact">Contacto</Link>
           </ul>
         </div>
-      )}
+        <div className='flex sm:hidden'>
+          <div className="flex" onClick={() => { handleShowNavbar(); handleChangeIconMenu(); }}>
+            {
+              changeIconMenu ? <Image src={menu} alt='menu-icon'></Image> : <Image src={cross} alt='cross-icon'></Image>
+            }
+          </div>
+          {showNavbar && (
+              <ul className='absolute top-16 right-0 bg-emerald-950 w-full flex flex-col items-center p-4 gap-16'>
+                <Link href="/">Inicio</Link>
+                <Link href="/Garden">Jardín</Link>
+                <Link href="/Pokedex">Pokedex</Link>
+                <Link href="/Contact">Contacto</Link>
+              </ul>
+          )}
+        </div>
+      </nav>
     </header>
   );
 }

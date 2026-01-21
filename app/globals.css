@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+html{
+    background-color: lab(15.0582% -17.9507 2.38369);
+}
