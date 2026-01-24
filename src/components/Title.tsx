@@ -4,6 +4,7 @@ interface props{
     text: string;
     type: TitleSize;
     border?: boolean;
+    center?: boolean;
 }
 type TitleSize = 'small' | 'medium' | 'medium-2' | 'large' | 'xLarge';
 
@@ -24,7 +25,7 @@ const Title: React.FC<props> = ({ text, type, border }) => {
   `;
 
   return (
-    <div className="flex justify-center mb-4 w-fit">
+    <div className="flex mb-4 w-auto">
       <p className={textClass}>{text}</p>
     </div>
   );
