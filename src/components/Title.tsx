@@ -8,11 +8,12 @@ interface props{
 type TitleSize = 'small' | 'medium' | 'medium-2' | 'large' | 'xLarge';
 
 const sizeClasses: Record<string, string> = {
-  small: 'text-sm',
-  medium: 'text-base',
-  'medium-2': 'text-lg',
-  large: 'text-xl',
-  xLarge: 'text-2xl',
+  small: 'text-lg',
+  medium: 'text-xl',
+  large: 'text-2xl',
+  xLarge: 'text-3xl',
+  xLarge1: 'text-5xl',
+  xLarge2: 'text-6xl',
 };
 
 const Title: React.FC<props> = ({ text, type, border }) => {

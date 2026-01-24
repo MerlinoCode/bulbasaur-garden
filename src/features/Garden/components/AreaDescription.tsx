@@ -4,22 +4,18 @@ import Title from "@/src/components/Title";
 
 interface props{
     desc: string;
-    id: string;
     image: string;
-    title: string;
+    title?: string;
+    border?: boolean
 }
 
-const AreaDescription : React.FC<props> = ({desc, id, image, title}) => {
-    
+const AreaDescription : React.FC<props> = ({desc, image, title, border}) => {
     return(
-        <div className="description" id={id}>
-            <div className="area-title">
-                <Title text={title} type='medium-2' border={true}/>
-            </div>
+        <div>
+            <Title text={title ? title : ''} type='medium' border={border ? true : false}/>
             <p className="text-white">{desc}</p>
-            <div className="background-divisor"></div>
-            <div className="image-wrapper">
-                <Image className="photo" src={image} alt="image description" width={500} height={300}/>
+            <div className="mb-8 mt-4">
+                <Image src={image} alt="image description" width={500} height={300}/>
             </div>
         </div>
     )
