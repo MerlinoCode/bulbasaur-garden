@@ -17,7 +17,7 @@ const sizeClasses: Record<string, string> = {
   xLarge2: 'text-6xl',
 };
 
-const Title: React.FC<props> = ({ text, type, border }) => {
+const Title: React.FC<props> = ({ text, type, border, center }) => {
   const textClass = `
     text-white
     ${border ? 'border-4 border-transparent border-b-amber-300' : ''}
@@ -25,7 +25,7 @@ const Title: React.FC<props> = ({ text, type, border }) => {
   `;
 
   return (
-    <div className="flex mb-4 w-auto">
+    <div className={`${center ? 'justify-center' : ''} flex mb-4 w-auto`}>
       <p className={textClass}>{text}</p>
     </div>
   );

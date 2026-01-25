@@ -11,7 +11,7 @@ interface props{
 const InformationCard : React.FC<props> = ({desc, logo}) => {
     
     return(
-        <div className="information-card">
+        <div className="information-card text-white">
             <div className="info-logo">
             {(() => {
                 switch (logo) {
