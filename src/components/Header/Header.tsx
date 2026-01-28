@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <header className=" flex justify-between text-white bg-emerald-950 relative mx-4 mt-4 mb-0">
-      <Image src={logo} alt="Logo" width={150} height={50} />
+      <Image loading='eager' src={logo} alt="Logo" width={150} height={50} />
       <nav className="flex" onClick={() => { handleShowNavbar(); handleChangeIconMenu(); }}>
 
         <div className='hidden sm:flex'>
@@ -29,11 +29,11 @@ export default function Navbar() {
         <div className='flex sm:hidden'>
           <div className="flex" onClick={() => { handleShowNavbar(); handleChangeIconMenu(); }}>
             {
-              changeIconMenu ? <Image src={menu} alt='menu-icon'></Image> : <Image src={cross} alt='cross-icon'></Image>
+              changeIconMenu ? <Image style={{height: 'auto'}} src={menu} alt='menu-icon'></Image> : <Image style={{height: 'auto'}} src={cross} alt='cross-icon'></Image>
             }
           </div>
           {showNavbar && (
-              <ul className='absolute top-16 right-0 bg-emerald-950 w-full flex flex-col items-center p-4 gap-16'>
+              <ul className='absolute top-16 right-0 bg-emerald-950 w-full flex flex-col items-center p-4 gap-16 z-10'>
                 <Link href="/">Inicio</Link>
                 <Link href="/Garden">Jardín</Link>
                 <Link href="/Pokedex">Pokedex</Link>

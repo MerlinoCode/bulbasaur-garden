@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "@/src/components/Title";
 import InputForm from "./InputForm";
+import SendButton from "../SendButton";
 
 interface props{
     title: string;
@@ -14,8 +15,8 @@ const Formulary : React.FC<props> = ({title}) => {
                     <InputForm id="name" type="text" text='Nombre y Apellido'/>
                     <InputForm id="mail" type="mail" text='Dirección de Email'/>
                     <InputForm id="phone" type="text" text='Número de Celular'/>
-                    <InputForm id="ticket" type="number" text='Número de Tickets'/>
-                    <input className="button-form" type="submit" value="Enviar"/>
+                    <InputForm id="message" type="textarea" text='Deje su mensaje'/>
+                    <SendButton text="ENVIAR" btnType="submit"/>
                 </form>
         </div>
     )

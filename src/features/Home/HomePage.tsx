@@ -1,6 +1,6 @@
 import Presentation from "./components/Presentation";
 import InfoCard from "./components/InfoCard";
-import Title from "@/src/components/Title";
+//import Title from "@/src/components/Title";
 
 export function HomePage() {
     return (
