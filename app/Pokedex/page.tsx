@@ -1,7 +1,11 @@
 import PokedexPage from '@/src/features/Pokedex/PokedexPage';
 
-export default function Home() {
-  return (
-    <PokedexPage />
-  );
+type Props = {
+  searchParams?: {
+    page?: string;
+  };
+};
+
+export default function Page({ searchParams }: Props) {
+  return <PokedexPage searchParams={searchParams} />;
 }

@@ -1,16 +1,22 @@
-import Title from "@/src/components/Title";
-import PokemonList from './components/PokemonList';
+// app/pokemon/PokedexPage.tsx
 
-type Pokemon = {
+import PokemonList from './components/PokemonList';
+import PaginationControls from './components/PaginationControls';
+
+type pokemon = {
   name: string;
   url: string;
 };
 
-async function getPokemon(limit = 50) {
+const LIMIT = 50;
+
+async function getPokemon(page: number) {
+  const offset = (page - 1) * LIMIT;
+
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=${limit}`,
+    `https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}&offset=${offset}`,
     {
-      next: { revalidate: 3600 }, // cache 1 hora
+      next: { revalidate: 3600 },
     }
   );
 
@@ -21,15 +27,27 @@ async function getPokemon(limit = 50) {
   return res.json();
 }
 
-export default async function PokedexPage() {
-    const data = await getPokemon(50);
+type Props = {
+  searchParams?: {
+    page?: string;
+  };
+};
 
-    return (
-        <div className="flex items-center justify-center">
-            <main className="flex w-full max-w-3xl flex-col justify-between sm:items-start mt-6 px-8">
-                <Title text="Pokedex" type='xLarge' border={true} />
-                <PokemonList initialPokemon={data.results} />
-            </main>
-        </div>
-    );
+export default async function PokedexPage({ searchParams }: Props) {
+  const page = Number(searchParams?.page ?? 1);
+  const data = await getPokemon(page);
+
+  return (
+    <div className="max-w-5xl mx-auto p-6">
+      <h1 className="text-3xl text-white mb-6">Pokédex</h1>
+
+      <PokemonList pokemon={data.results} />
+
+      <PaginationControls
+        page={page}
+        hasNext={Boolean(data.next)}
+        hasPrev={Boolean(data.previous)}
+      />
+    </div>
+  );
 }
