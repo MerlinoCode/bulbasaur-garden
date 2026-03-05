@@ -24,8 +24,12 @@ export default async function PokedexPage(props: Props) {
   return (
     <div className="min-h-screen pb-12">
       {/* Hero Header */}
-      <div className="bg-zinc-900 border-b border-zinc-800 mb-8 shadow-lg">
-        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+      <div className="bg-zinc-900 border-b border-zinc-800 mb-8 shadow-lg relative overflow-hidden">
+        {/* Thematic red background glow effects */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center relative z-10">
           <div className="inline-flex items-center justify-center p-3 bg-red-500/10 rounded-full mb-8">
             <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(239,68,68,0.5)]">
               <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>

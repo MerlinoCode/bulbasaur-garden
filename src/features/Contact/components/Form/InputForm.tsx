@@ -15,33 +15,38 @@ interface props {
 const InputForm: React.FC<props> = ({ id, text, type }) => {
 
     return (
-        <div className="relative">
-            {(() => {
-                switch (id) {
-                    case 'name':
-                        return <Image className="w-5 h-5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" src={person} alt="Person Icon" />
-                    case 'mail':
-                        return <Image className="w-5 h-5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" src={mail} alt="Mail Icon" />
-                    case 'phone':
-                        return <Image className="w-5 h-5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" src={phone} alt="Phone Icon" />
-                    case 'ticket':
-                        return <Image className="w-5 h-5 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" src={ticket} alt="Ticket Icon" />
-                    case 'message':
-                        return <Image className="w-5 h-5 text-zinc-400 absolute left-3 top-1/6 -translate-y-1/2" src={message} alt="Message Icon" />
-                    default:
-                        return null
-                }
-            })()}
-            {type === "text" || type === "number" || type === "mail" ?
-                <input className="w-full pl-10 pr-4 py-2 rounded-md bg-zinc-800 text-white
-                                    border border-zinc-700 focus:border-amber-400
-                                    focus:outline-none" type={type} name={id} placeholder={text} />
-            :
-                <textarea className="w-full pl-10 pr-4 py-2 rounded-md bg-zinc-800 text-white
-                                    border border-zinc-700 focus:border-amber-400
-                                    focus:outline-none resize-y" name={id} placeholder={text} rows={5}/>}
+        <div className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 opacity-50 group-focus-within:opacity-100 transition-opacity">
+                {(() => {
+                    const iconClass = "w-5 h-5 filter brightness-0 invert";
+                    switch (id) {
+                        case 'name': return <Image src={person} alt="Person" width={20} height={20} className={iconClass} />
+                        case 'mail': return <Image src={mail} alt="Email" width={20} height={20} className={iconClass} />
+                        case 'phone': return <Image src={phone} alt="Phone" width={20} height={20} className={iconClass} />
+                        case 'ticket': return <Image src={ticket} alt="Ticket" width={20} height={20} className={iconClass} />
+                        case 'message': return <Image src={message} alt="Message" width={20} height={20} className={`${iconClass} -mt-12`} />
+                        default: return null;
+                    }
+                })()}
+            </div>
+
+            {type === "text" || type === "number" || type === "mail" ? (
+                <input
+                    className="w-full pl-12 pr-6 py-4 rounded-2xl bg-zinc-800/50 text-white border border-white/5 focus:border-amber-500/50 focus:bg-zinc-800/80 focus:outline-none backdrop-blur-sm transition-all placeholder:text-zinc-600 font-medium"
+                    type={type}
+                    name={id}
+                    placeholder={text}
+                />
+            ) : (
+                <textarea
+                    className="w-full pl-12 pr-6 py-4 rounded-2xl bg-zinc-800/50 text-white border border-white/5 focus:border-amber-500/50 focus:bg-zinc-800/80 focus:outline-none backdrop-blur-sm transition-all resize-none placeholder:text-zinc-600 font-medium"
+                    name={id}
+                    placeholder={text}
+                    rows={5}
+                />
+            )}
         </div>
-    )
+    );
 }
 
 export default InputForm;
