@@ -25,16 +25,16 @@ export default async function PokedexPage(props: Props) {
     <div className="min-h-screen pb-12">
       {/* Hero Header */}
       <div className="bg-zinc-900 border-b border-zinc-800 mb-8 shadow-lg">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
-          <div className="inline-flex items-center justify-center p-3 bg-red-500/10 rounded-full mb-6">
-            <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(239,68,68,0.5)]">
-              <div className="w-6 h-6 bg-white rounded-full border-4 border-zinc-900"></div>
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+          <div className="inline-flex items-center justify-center p-3 bg-red-500/10 rounded-full mb-8">
+            <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(239,68,68,0.5)]">
+              <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 tracking-tight mb-4">
+          <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 tracking-[-0.02em] mb-6 drop-shadow-xl">
             Pokédex
           </h1>
-          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
             Explora el vasto mundo de Pokémon. Descubre sus tipos, estadísticas y características únicas.
           </p>
         </div>
