@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type Props = {
   page: number;
@@ -14,13 +14,16 @@ export default function PaginationControls({
   hasPrev,
 }: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const currentSearch = searchParams.get('search');
 
   function goToPage(newPage: number) {
-    router.push(`/pokemon?page=${newPage}`);
+    const searchPart = currentSearch ? `&search=${encodeURIComponent(currentSearch)}` : '';
+    router.push(`/Pokedex?page=${newPage}${searchPart}`);
   }
 
   return (
-    <div className="flex justify-center gap-4 mt-8">
+    <div className="flex flex-wrap sm:flex-nowrap justify-center items-center gap-4">
       <button
         disabled={!hasPrev}
         onClick={() => goToPage(page - 1)}

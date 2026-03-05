@@ -1,11 +1,12 @@
 import PokedexPage from '@/src/features/Pokedex/PokedexPage';
 
 type Props = {
-  searchParams?: {
+  searchParams: Promise<{
     page?: string;
-  };
+    search?: string;
+  }>;
 };
 
-export default function Page({ searchParams }: Props) {
-  return <PokedexPage searchParams={searchParams} />;
+export default async function Page(props: Props) {
+  return <PokedexPage searchParams={props.searchParams} />;
 }
