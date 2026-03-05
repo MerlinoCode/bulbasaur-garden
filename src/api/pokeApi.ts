@@ -122,6 +122,51 @@ export type PokemonDetails = {
             name: string;
         };
     }[];
+    species: {
+        name: string;
+        url: string;
+    };
+    moves: {
+        move: {
+            name: string;
+            url: string;
+        };
+        version_group_details: {
+            level_learned_at: number;
+            move_learn_method: {
+                name: string;
+            };
+        }[];
+    }[];
+    abilities: {
+        ability: {
+            name: string;
+            url: string;
+        };
+        is_hidden: boolean;
+    }[];
+};
+
+export type PokemonSpecies = {
+    evolution_chain: {
+        url: string;
+    };
+};
+
+export type EvolutionStage = {
+    species_name: string;
+    id: number;
+    image: string;
+};
+
+export type EvolutionChainResponse = {
+    chain: {
+        species: {
+            name: string;
+            url: string;
+        };
+        evolves_to: any[];
+    };
 };
 
 /**
@@ -138,4 +183,57 @@ export async function getPokemonDetails(name: string): Promise<PokemonDetails> {
     }
 
     return res.json();
+}
+
+/**
+ * Fetches the species details of a specific Pokemon by name.
+ * @param name The name of the Pokemon.
+ */
+export async function getPokemonSpecies(name: string): Promise<PokemonSpecies> {
+    const res = await fetch(`${BASE_URL}/pokemon-species/${name}`, {
+        next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+        throw new Error(`Error al cargar la especie de ${name}`);
+    }
+
+    return res.json();
+}
+
+/**
+ * Fetches the evolution chain from a given URL.
+ * @param url The evolution chain URL.
+ */
+export async function getEvolutionChain(url: string): Promise<EvolutionChainResponse> {
+    const res = await fetch(url, {
+        next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+        throw new Error(`Error al cargar la cadena de evolución`);
+    }
+
+    return res.json();
+}
+
+/**
+ * Fetches the flavor text (description) from a given URL (works for moves and abilities).
+ * @param url The API URL for the move or ability.
+ */
+export async function getFlavorText(url: string): Promise<string> {
+    const res = await fetch(url, {
+        next: { revalidate: 3600 * 24 }, // Cache for 24 hours
+    });
+
+    if (!res.ok) return "No description available.";
+
+    const data = await res.json();
+
+    // Find Spanish flavor text first, then English
+    const spanish = data.flavor_text_entries?.find((e: any) => e.language.name === 'es')?.flavor_text;
+    if (spanish) return spanish.replace(/[\n\f]/g, ' ');
+
+    const english = data.flavor_text_entries?.find((e: any) => e.language.name === 'en')?.flavor_text;
+    return english ? english.replace(/[\n\f]/g, ' ') : "No description available.";
 }

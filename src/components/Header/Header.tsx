@@ -3,9 +3,62 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { default as logo } from '../Header/assets/logo.png';
 import { default as menu } from '../Header/assets/menu.svg';
 import { default as cross } from '../Header/assets/cross.svg';
+
+const Logo = () => (
+  <div className="flex items-center gap-4 group">
+    <div className="relative w-10 h-10 flex items-center justify-center">
+      {/* Ambient Background Glow */}
+      <div className="absolute inset-0 bg-emerald-500/30 blur-2xl group-hover:bg-emerald-500/50 transition-all duration-700 rounded-full scale-125" />
+
+      {/* Minimalist bulb SVG */}
+      <svg
+        viewBox="0 0 100 100"
+        className="w-full h-full relative z-10 drop-shadow-[0_0_12px_rgba(16,185,129,0.5)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
+      >
+        <defs>
+          <linearGradient id="bulbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#34d399" />
+            <stop offset="100%" stopColor="#10b981" />
+          </linearGradient>
+        </defs>
+        {/* Geometric Bulb Body */}
+        <path
+          d="M50 10 C30 10 15 35 15 65 C15 85 30 92 50 92 C70 92 85 85 85 65 C85 35 70 10 50 10Z"
+          fill="url(#bulbGradient)"
+        />
+        {/* Highlight/Leaf Detail */}
+        <path
+          d="M50 10 C60 10 75 30 75 55 M50 10 C40 10 25 30 25 55"
+          stroke="white"
+          strokeWidth="3"
+          fill="none"
+          opacity="0.2"
+          strokeLinecap="round"
+        />
+        {/* Glossy Reflection */}
+        <path
+          d="M35 60 C35 50 45 40 50 40"
+          stroke="white"
+          strokeWidth="4"
+          fill="none"
+          opacity="0.1"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
+
+    <div className="flex flex-col justify-center">
+      <span className="text-xl font-black tracking-tighter text-white leading-[0.85] flex items-center">
+        BULBASAUR
+      </span>
+      <span className="text-[10px] font-black tracking-[0.45em] text-emerald-500 uppercase leading-[0.85] mt-1.5 opacity-80">
+        GARDEN
+      </span>
+    </div>
+  </div>
+);
 
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -24,8 +77,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-zinc-950/70 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo Section */}
-        <Link href="/" className="relative transition-transform duration-300 hover:scale-105">
-          <Image loading='eager' src={logo} alt="Logo" width={140} height={40} className="filter brightness-0 invert" />
+        <Link href="/" className="relative transition-all duration-300">
+          <Logo />
         </Link>
 
         {/* Desktop Navigation */}

@@ -28,7 +28,7 @@ export function ContactPage() {
                         Contacto
                     </h1>
                     <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
-                        ¿Tienes dudas sobre el jardín o necesitas ayuda con tu dex? Estamos aquí para escucharte.
+                        ¿Tienes dudas sobre el jardín? Cualquier sugerencia que tengas, estamos aquí para escucharte.
                     </p>
                 </div>
             </div>
@@ -59,7 +59,7 @@ export function ContactPage() {
                                     <div className="text-3xl group-hover:scale-125 transition-transform duration-300">📢</div>
                                     <div className="min-w-0 flex-1">
                                         <h4 className="text-zinc-500 font-bold text-xs uppercase tracking-widest mb-1">Prensa & Eventos</h4>
-                                        <p className="text-white font-black text-lg">comunicacion@bulbasaurgarden.com</p>
+                                        <p className="text-white font-black text-lg">prensa@bulbasaurgarden.com</p>
                                     </div>
                                 </div>
 

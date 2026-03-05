@@ -31,7 +31,7 @@ export function HomePage() {
                 </div>
             </div>
 
-            <main className="max-w-6xl mx-auto px-6 space-y-32">
+            <main className="max-w-6xl mx-auto px-6 space-y-8">
                 {/* Stats Section - Added Details */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-zinc-800/50 bg-zinc-950/20 rounded-[3rem] backdrop-blur-sm">
                     <div className="text-center group">
@@ -147,7 +147,7 @@ export function HomePage() {
                             Bulbasaur Garden nació como un refugio digital para coleccionistas y amantes de la naturaleza Pokémon. Nuestra misión es proporcionar la base de datos más estética y funcional, facilitando el descubrimiento de cada espécimen en un entorno visualmente relajante y premium.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            {["Creatividad", "Comunidad", "Excelencia"].map((tag) => (
+                            {["Creatividad", "Comunidad", "Diversión", "Excelencia", "Único"].map((tag) => (
                                 <span key={tag} className="px-6 py-3 bg-blue-500/10 text-blue-400 rounded-full text-sm font-black uppercase tracking-widest border border-blue-500/20">
                                     {tag}
                                 </span>
