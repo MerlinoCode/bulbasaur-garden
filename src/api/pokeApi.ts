@@ -165,7 +165,10 @@ export type EvolutionChainResponse = {
             name: string;
             url: string;
         };
-        evolves_to: any[];
+        evolves_to: {
+            species: { name: string; url: string };
+            evolves_to: { species: { name: string; url: string }; evolves_to: unknown[] }[];
+        }[];
     };
 };
 
@@ -231,9 +234,9 @@ export async function getFlavorText(url: string): Promise<string> {
     const data = await res.json();
 
     // Find Spanish flavor text first, then English
-    const spanish = data.flavor_text_entries?.find((e: any) => e.language.name === 'es')?.flavor_text;
+    const spanish = data.flavor_text_entries?.find((e: { language: { name: string } }) => e.language.name === 'es')?.flavor_text;
     if (spanish) return spanish.replace(/[\n\f]/g, ' ');
 
-    const english = data.flavor_text_entries?.find((e: any) => e.language.name === 'en')?.flavor_text;
+    const english = data.flavor_text_entries?.find((e: { language: { name: string } }) => e.language.name === 'en')?.flavor_text;
     return english ? english.replace(/[\n\f]/g, ' ') : "No description available.";
 }

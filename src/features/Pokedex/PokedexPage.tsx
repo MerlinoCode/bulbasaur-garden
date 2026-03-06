@@ -71,7 +71,7 @@ export default async function PokedexPage(props: Props) {
               </svg>
             </div>
             <h2 className="text-2xl font-bold text-white mb-2">No Pokémon found</h2>
-            <p className="text-zinc-400 max-w-sm mx-auto">We couldn't find any Pokémon matching "{search}". Try searching for a different name or ID.</p>
+            <p className="text-zinc-400 max-w-sm mx-auto">We couldn&apos;t find any Pokémon matching &quot;{search}&quot;. Try searching for a different name or ID.</p>
           </div>
         )}
 

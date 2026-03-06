@@ -9,7 +9,7 @@ export default function BackToTopButton() {
     };
 
     return (
-        <div className="mt-12 mb-8 flex justify-center">
+        <div className="mt-12 mb-4 flex justify-center">
             <button
                 onClick={scrollToTop}
                 className="group px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full font-bold shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-2 border border-white/5 hover:border-white/20"

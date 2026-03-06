@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "@/src/components/Title";
 import InputForm from "./InputForm";
 import SendButton from "../SendButton";
 

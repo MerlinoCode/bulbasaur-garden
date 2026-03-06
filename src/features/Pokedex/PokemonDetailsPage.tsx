@@ -2,6 +2,15 @@ import { getPokemonDetails, getPokemonSpecies, getEvolutionChain, getFlavorText 
 import { getTypeColor } from '@/src/utils/pokemonColors';
 import Link from 'next/link';
 
+const statTranslations: Record<string, string> = {
+  hp: "Salud",
+  attack: "Ataque",
+  defense: "Defensa",
+  "special-attack": "Ataque Esp.",
+  "special-defense": "Defensa Esp.",
+  speed: "Velocidad",
+};
+
 type Props = {
   name: string;
 };
@@ -14,9 +23,11 @@ export default async function PokemonDetailsPage({ name }: Props) {
   const evoChainData = await getEvolutionChain(species.evolution_chain.url);
 
   // Helper to flatten evolution chain
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getEvoStages = (chain: any) => {
-    let stages: { name: string; id: number }[] = [];
-    let current = chain;
+    const stages: { name: string; id: number }[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let current: any = chain;
 
     while (current) {
       const id = parseInt(current.species.url.split('/').filter(Boolean).pop()!);
@@ -148,7 +159,7 @@ export default async function PokemonDetailsPage({ name }: Props) {
                     {pokemon.stats.map(s => (
                       <div key={s.stat.name} className="flex justify-between items-center group">
                         <span className="text-zinc-500 uppercase font-black text-[10px] tracking-widest group-hover:text-white transition-colors">
-                          {s.stat.name.replace("-", " ")}
+                          {statTranslations[s.stat.name] || s.stat.name.replace("-", " ")}
                         </span>
                         <div className="flex items-center gap-4">
                           <span className="font-black text-white w-10 text-right text-lg">{s.base_stat}</span>
@@ -186,7 +197,7 @@ export default async function PokemonDetailsPage({ name }: Props) {
                       {/* Hover Description Overlay */}
                       <div className="absolute inset-0 bg-zinc-900/95 backdrop-blur-xl p-6 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center text-center z-50 rounded-2xl">
                         <p className="text-xs text-zinc-300 leading-relaxed font-bold italic">
-                          "{a.description}"
+                          &quot;{a.description}&quot;
                         </p>
                       </div>
 

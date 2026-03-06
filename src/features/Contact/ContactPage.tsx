@@ -1,12 +1,7 @@
 import Form from "./components/Form/Form";
+import BackToTopButton from "../Pokedex/components/BackToTopButton";
 
 export function ContactPage() {
-    const contactInfo = [
-        { title: "Soporte Técnico", detail: "soporte@bulbasaurgarden.com", icon: "📧" },
-        { title: "Prensa y Eventos", detail: "comunicacion@bulbasaurgarden.com", icon: "📢" },
-        { title: "Redes Sociales", detail: "@BulbaGarden", icon: "📱" },
-    ];
-
     return (
         <div className="min-h-screen pb-24 relative overflow-hidden">
             {/* Background Glow Orbs */}
@@ -50,7 +45,7 @@ export function ContactPage() {
                                     <div className="text-3xl group-hover:scale-125 transition-transform duration-300">📧</div>
                                     <div className="min-w-0 flex-1">
                                         <h4 className="text-zinc-500 font-bold text-xs uppercase tracking-widest mb-1">Soporte Técnico</h4>
-                                        <p className="text-white font-black text-lg truncate hover:overflow-visible transition-all">soporte@bulbasaurgarden.com</p>
+                                        <p className="text-white font-black text-sm md:text-base whitespace-nowrap">soporte@bulbasaurgarden.com</p>
                                     </div>
                                 </div>
 
@@ -59,7 +54,7 @@ export function ContactPage() {
                                     <div className="text-3xl group-hover:scale-125 transition-transform duration-300">📢</div>
                                     <div className="min-w-0 flex-1">
                                         <h4 className="text-zinc-500 font-bold text-xs uppercase tracking-widest mb-1">Prensa & Eventos</h4>
-                                        <p className="text-white font-black text-lg">prensa@bulbasaurgarden.com</p>
+                                        <p className="text-white font-black text-sm md:text-base whitespace-nowrap">prensa@bulbasaurgarden.com</p>
                                     </div>
                                 </div>
 
@@ -100,6 +95,8 @@ export function ContactPage() {
                     </div>
                 </div>
             </main>
+
+            <BackToTopButton />
         </div>
     );
 }

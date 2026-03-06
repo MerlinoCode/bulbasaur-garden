@@ -1,4 +1,5 @@
 import AreaDescription from "./components/AreaDescription";
+import BackToTopButton from "../Pokedex/components/BackToTopButton";
 
 export function GardenPage() {
     const areas = [
@@ -88,6 +89,8 @@ export function GardenPage() {
                     ))}
                 </div>
             </main>
+
+            <BackToTopButton />
         </div>
     );
 }

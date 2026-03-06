@@ -74,7 +74,8 @@ export default function Navbar() {
   const handleToggle = () => setShowNavbar(!showNavbar);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-zinc-950/70 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300">
+    <>
+      <header className="sticky top-0 z-50 w-full bg-zinc-950/70 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/" className="relative transition-all duration-300">
@@ -113,27 +114,36 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
-      <div className={`fixed inset-0 top-20 bg-zinc-950/95 backdrop-blur-2xl z-40 transition-all duration-500 md:hidden ${showNavbar ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-        <nav className="p-8">
-          <ul className="space-y-8 text-center pt-10">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <li key={link.href} onClick={() => setShowNavbar(false)}>
-                  <Link
-                    href={link.href}
-                    className={`block text-3xl font-black uppercase tracking-widest transition-all duration-300 ${isActive ? 'text-white' : 'text-zinc-700 hover:text-zinc-500'}`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </div>
     </header>
+
+    {/* Mobile Navigation Drawer */}
+    <div 
+      className={`fixed inset-0 top-20 bg-zinc-950 z-40 md:hidden transition-transform duration-300 ease-out ${showNavbar ? 'translate-x-0' : 'translate-x-full'}`}
+    >
+      <nav className="p-8">
+        <ul className="space-y-8 text-center pt-10">
+          {navLinks.map((link, index) => {
+            const isActive = pathname === link.href;
+            return (
+              <li 
+                key={link.href} 
+                onClick={() => setShowNavbar(false)}
+                className={`transition-all duration-300 ${showNavbar ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+                style={{ transitionDelay: showNavbar ? `${index * 75}ms` : '0ms' }}
+              >
+                <Link
+                  href={link.href}
+                  className={`block text-3xl font-black uppercase tracking-widest transition-all duration-300 ${isActive ? 'text-white drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]' : 'text-zinc-600 hover:text-zinc-400'}`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  </>
   );
 }
 

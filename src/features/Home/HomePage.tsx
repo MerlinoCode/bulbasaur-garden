@@ -1,7 +1,7 @@
 import Presentation from "./components/Presentation";
 import InfoCard from "./components/InfoCard";
 import Link from 'next/link';
-import Image from 'next/image';
+import BackToTopButton from "../Pokedex/components/BackToTopButton";
 
 export function HomePage() {
     return (
@@ -168,6 +168,8 @@ export function HomePage() {
                     </div>
                 </div>
             </main>
+
+            <BackToTopButton />
         </div>
     );
 }
