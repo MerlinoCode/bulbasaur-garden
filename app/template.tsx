@@ -1,13 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const initialized = useRef(false);
-  const scrollTarget = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (initialized.current) {
@@ -18,12 +16,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     } else {
       initialized.current = true;
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
-  return (
-    <>
-      <div ref={scrollTarget} />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
