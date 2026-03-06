@@ -44,10 +44,10 @@ export default async function PokedexPage(props: Props) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div id="pokemon-list" className="max-w-6xl mx-auto px-6">
 
         {/* Controls Row */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10 bg-zinc-900/50 p-6 rounded-3xl border border-zinc-800/50 backdrop-blur-sm">
+        <div id="search-bar" className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10 bg-zinc-900/50 p-6 rounded-3xl border border-zinc-800/50 backdrop-blur-sm">
           <SearchBar />
 
           <PaginationControls

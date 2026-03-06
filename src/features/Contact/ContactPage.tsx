@@ -41,7 +41,7 @@ export function ContactPage() {
                             <h2 className="text-3xl font-black text-white tracking-tight">Canales <span className="text-amber-400 text-shadow-glow">Directos</span></h2>
                             <div className="space-y-5">
                                 {/* Support Card */}
-                                <div className="group flex items-center gap-6 p-7 bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl hover:bg-zinc-900/60 transition-all duration-300">
+                                <div className="group flex flex-col min-[400px]:flex-row items-start min-[400px]:items-center gap-4 min-[400px]:gap-6 p-7 bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl hover:bg-zinc-900/60 transition-all duration-300">
                                     <div className="text-3xl group-hover:scale-125 transition-transform duration-300">📧</div>
                                     <div className="min-w-0 flex-1">
                                         <h4 className="text-zinc-500 font-bold text-xs uppercase tracking-widest mb-1">Soporte Técnico</h4>
@@ -50,7 +50,7 @@ export function ContactPage() {
                                 </div>
 
                                 {/* Press Card - Increased Size/Width */}
-                                <div className="group flex items-center gap-6 p-7 bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl hover:bg-zinc-900/60 transition-all duration-300">
+                                <div className="group flex flex-col min-[400px]:flex-row items-start min-[400px]:items-center gap-4 min-[400px]:gap-6 p-7 bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-3xl hover:bg-zinc-900/60 transition-all duration-300">
                                     <div className="text-3xl group-hover:scale-125 transition-transform duration-300">📢</div>
                                     <div className="min-w-0 flex-1">
                                         <h4 className="text-zinc-500 font-bold text-xs uppercase tracking-widest mb-1">Prensa & Eventos</h4>
