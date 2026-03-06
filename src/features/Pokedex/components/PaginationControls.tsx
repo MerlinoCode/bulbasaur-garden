@@ -20,7 +20,7 @@ export default function PaginationControls({
   function goToPage(newPage: number) {
     const searchPart = currentSearch ? `&search=${encodeURIComponent(currentSearch)}` : '';
     const targetUrl = `/Pokedex?page=${newPage}${searchPart}`;
-    
+
     router.push(targetUrl);
   }
 
@@ -29,19 +29,21 @@ export default function PaginationControls({
       <button
         disabled={!hasPrev}
         onClick={() => goToPage(page - 1)}
-        className="px-4 py-2 bg-zinc-700 text-white rounded disabled:opacity-50 transition-opacity flex items-center gap-2"
+        className="px-6 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-2xl transition-all duration-200 disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed flex items-center gap-2 shadow-lg shadow-red-900/20 active:scale-95"
       >
         ← Anterior
       </button>
 
-      <span className="text-white flex items-center">
-        Página {page}
-      </span>
+      <div className="px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-2xl backdrop-blur-md">
+        <span className="text-white font-black tracking-tighter">
+          PÁGINA <span className="text-red-500 ml-1">{page}</span>
+        </span>
+      </div>
 
       <button
         disabled={!hasNext}
         onClick={() => goToPage(page + 1)}
-        className="px-4 py-2 bg-amber-400 text-black rounded disabled:opacity-50 transition-opacity flex items-center gap-2"
+        className="px-6 py-2.5 bg-red-600 hover:bg-red-500 text-white font-bold rounded-2xl transition-all duration-200 disabled:opacity-30 disabled:grayscale disabled:cursor-not-allowed flex items-center gap-2 shadow-lg shadow-red-900/20 active:scale-95"
       >
         Siguiente →
       </button>

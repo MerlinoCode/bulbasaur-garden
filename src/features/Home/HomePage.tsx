@@ -1,3 +1,4 @@
+"use client";
 import Presentation from "./components/Presentation";
 import InfoCard from "./components/InfoCard";
 import Link from 'next/link';
@@ -23,7 +24,7 @@ export function HomePage() {
                         </div>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-400 to-indigo-600 tracking-[-0.02em] mb-6 drop-shadow-xl">
-                        Bulbasaur Garden
+                        Bienvenido!
                     </h1>
                     <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
                         Tu puerta de entrada al fascinante mundo Pokémon. Explora nuestra pokedex nacional y descubre el santuario floral más místico.
@@ -53,7 +54,7 @@ export function HomePage() {
                 </div>
                 {/* Presentation Section */}
                 <Presentation
-                    title="¡Bienvenido Coleccionista!"
+                    title="¡Saludos!"
                     desc="Ven a visitar el primer y único atractivo turístico hecho por fans y para fans de Pokémon. Un espacio diseñado para la aventura, la paz y el descubrimiento."
                 />
 
@@ -90,8 +91,23 @@ export function HomePage() {
                                 Visitar Jardín &rarr;
                             </div>
                         </div>
-                        <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity translate-x-1/4 translate-y-1/4 grayscale group-hover:grayscale-0 duration-700">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="" className="w-64 h-64" />
+                        <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-700">
+                            {/* Radiant green glow behind Bulbasaur */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-emerald-500/40 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 group-hover:animate-glow-pulse transition-opacity duration-700" />
+
+                            {/* Star Particles - Only visible on hover */}
+                            <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-star" style={{ '--tw-translate-x': '-60px', '--tw-translate-y': '-80px' } as any} />
+                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:0.4s]" style={{ '--tw-translate-x': '70px', '--tw-translate-y': '-60px' } as any} />
+                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-emerald-200 rounded-full animate-star [animation-delay:0.8s]" style={{ '--tw-translate-x': '-40px', '--tw-translate-y': '70px' } as any} />
+                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:1.2s]" style={{ '--tw-translate-x': '80px', '--tw-translate-y': '40px' } as any} />
+                            </div>
+
+                            <img
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                                alt="Bulbasaur"
+                                className="w-64 h-64 relative z-10 opacity-10 group-hover:opacity-100 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 filter group-hover:drop-shadow-[0_0_30px_rgba(16,185,129,0.6)]"
+                            />
                         </div>
                     </Link>
                 </div>
