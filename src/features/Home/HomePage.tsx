@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import Presentation from "./components/Presentation";
 import InfoCard from "./components/InfoCard";
 import Link from 'next/link';
@@ -6,10 +7,10 @@ import BackToTopButton from "../Pokedex/components/BackToTopButton";
 
 export function HomePage() {
     return (
-        <div className="min-h-screen pb-24 relative overflow-hidden">
+        <div className="min-h-screen relative overflow-hidden">
             {/* Background Glow Orbs */}
-            <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
-            <div className="absolute bottom-1/4 -left-20 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+            <div className="absolute top-0 right-1/4 w-125 h-125 bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+            <div className="absolute bottom-1/4 -left-20 w-150 h-150 bg-indigo-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
             {/* Hero Header Section */}
             <div className="bg-zinc-900 border-b border-zinc-800 mb-12 shadow-lg relative overflow-hidden">
@@ -23,7 +24,7 @@ export function HomePage() {
                             <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>
                         </div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-400 to-indigo-600 tracking-[-0.02em] mb-6 drop-shadow-xl">
+                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-indigo-600 tracking-[-0.02em] mb-6 drop-shadow-xl">
                         Bienvenido!
                     </h1>
                     <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
@@ -32,7 +33,7 @@ export function HomePage() {
                 </div>
             </div>
 
-            <main className="max-w-6xl mx-auto px-6 space-y-8">
+            <main className="max-w-6xl mx-auto px-6 space-y-8 mb-0">
                 {/* Stats Section - Added Details */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-y border-zinc-800/50 bg-zinc-950/20 rounded-[3rem] backdrop-blur-sm">
                     <div className="text-center group">
@@ -61,7 +62,7 @@ export function HomePage() {
                 {/* Main Navigation Features */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
                     <Link href="/Pokedex" className="group relative block rounded-[2.5rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-red-500/30">
-                        <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-br from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="p-10 relative z-10 h-full flex flex-col justify-between">
                             <div>
                                 <h3 className="text-4xl font-black text-white mb-4">Pokédex</h3>
@@ -74,12 +75,12 @@ export function HomePage() {
                             </div>
                         </div>
                         <div className="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity translate-x-1/4 translate-y-1/4 grayscale group-hover:grayscale-0 duration-700">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="" className="w-64 h-64" />
+                            <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Poke Ball" width={256} height={256} className="w-64 h-64" />
                         </div>
                     </Link>
 
                     <Link href="/Garden" className="group relative block rounded-[2.5rem] overflow-hidden bg-zinc-900 border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30">
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-br from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="p-10 relative z-10 h-full flex flex-col justify-between">
                             <div>
                                 <h3 className="text-4xl font-black text-white mb-4">El Jardín</h3>
@@ -97,15 +98,17 @@ export function HomePage() {
 
                             {/* Star Particles - Only visible on hover */}
                             <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-star" style={{ '--tw-translate-x': '-60px', '--tw-translate-y': '-80px' } as any} />
-                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:0.4s]" style={{ '--tw-translate-x': '70px', '--tw-translate-y': '-60px' } as any} />
-                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-emerald-200 rounded-full animate-star [animation-delay:0.8s]" style={{ '--tw-translate-x': '-40px', '--tw-translate-y': '70px' } as any} />
-                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:1.2s]" style={{ '--tw-translate-x': '80px', '--tw-translate-y': '40px' } as any} />
+                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-star" style={{ '--tw-translate-x': '-60px', '--tw-translate-y': '-80px' } as React.CSSProperties} />
+                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:0.4s]" style={{ '--tw-translate-x': '70px', '--tw-translate-y': '-60px' } as React.CSSProperties} />
+                                <div className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-emerald-200 rounded-full animate-star [animation-delay:0.8s]" style={{ '--tw-translate-x': '-40px', '--tw-translate-y': '70px' } as React.CSSProperties} />
+                                <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-star [animation-delay:1.2s]" style={{ '--tw-translate-x': '80px', '--tw-translate-y': '40px' } as React.CSSProperties} />
                             </div>
 
-                            <img
+                            <Image
                                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
                                 alt="Bulbasaur"
+                                width={256}
+                                height={256}
                                 className="w-64 h-64 relative z-10 opacity-10 group-hover:opacity-100 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 filter group-hover:drop-shadow-[0_0_30px_rgba(16,185,129,0.6)]"
                             />
                         </div>
@@ -141,9 +144,11 @@ export function HomePage() {
                         <div className="order-1 md:order-2 flex justify-center">
                             <div className="relative w-full max-w-md aspect-square bg-zinc-900 border border-white/5 rounded-[3rem] overflow-hidden flex items-center justify-center p-12 group">
                                 <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <img
+                                <Image
                                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png"
                                     alt="Master Ball"
+                                    width={192}
+                                    height={192}
                                     className="w-48 h-48 filter drop-shadow-2xl group-hover:rotate-12 transition-transform duration-500"
                                 />
                             </div>
@@ -185,7 +190,7 @@ export function HomePage() {
                 </div>
             </main>
 
-            <BackToTopButton />
+            <BackToTopButton theme="blue" />
         </div>
     );
 }

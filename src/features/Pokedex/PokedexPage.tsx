@@ -22,7 +22,7 @@ export default async function PokedexPage(props: Props) {
   const data = await getDetailedPokemonList(page, 50, search);
 
   return (
-    <div className="min-h-screen pb-12">
+    <div className="min-h-screen">
       {/* Hero Header */}
       <div className="bg-zinc-900 border-b border-zinc-800 mb-8 shadow-lg relative overflow-hidden">
         {/* Thematic red background glow effects */}
@@ -35,7 +35,7 @@ export default async function PokedexPage(props: Props) {
               <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 tracking-[-0.02em] mb-6 drop-shadow-xl">
+          <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-red-500 to-amber-500 tracking-[-0.02em] mb-6 drop-shadow-xl">
             Pokédex
           </h1>
           <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
@@ -61,7 +61,7 @@ export default async function PokedexPage(props: Props) {
         {data.results.length > 0 ? (
           <>
             <PokemonList pokemon={data.results} />
-            <BackToTopButton />
+            <BackToTopButton theme="red" />
           </>
         ) : (
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-16 text-center shadow-xl">

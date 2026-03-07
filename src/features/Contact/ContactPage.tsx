@@ -3,7 +3,7 @@ import BackToTopButton from "../Pokedex/components/BackToTopButton";
 
 export function ContactPage() {
     return (
-        <div className="min-h-screen pb-24 relative overflow-hidden">
+        <div className="min-h-screen relative overflow-hidden">
             {/* Background Glow Orbs */}
             <div className="absolute top-1/4 -left-20 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
             <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-yellow-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
@@ -19,7 +19,7 @@ export function ContactPage() {
                             <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>
                         </div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-500 tracking-[-0.02em] mb-6 drop-shadow-xl">
+                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-yellow-500 tracking-[-0.02em] mb-6 drop-shadow-xl">
                         Contacto
                     </h1>
                     <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
@@ -28,7 +28,7 @@ export function ContactPage() {
                 </div>
             </div>
 
-            <main className="max-w-6xl mx-auto px-6 relative z-10">
+            <main className="max-w-6xl mx-auto px-6 relative z-10 mb-0">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                     {/* Left Side: Contact Form */}
                     <div className="lg:col-span-7">
@@ -96,7 +96,7 @@ export function ContactPage() {
                 </div>
             </main>
 
-            <BackToTopButton />
+            <BackToTopButton theme="amber" />
         </div>
     );
 }

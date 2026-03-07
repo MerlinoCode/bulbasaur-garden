@@ -51,7 +51,7 @@ export function GardenPage() {
     ];
 
     return (
-        <div className="min-h-screen pb-24">
+        <div className="min-h-screen">
             {/* Hero Header */}
             <div className="bg-zinc-900 border-b border-zinc-800 mb-20 shadow-lg relative overflow-hidden">
                 {/* Thematic green background glow effects */}
@@ -64,7 +64,7 @@ export function GardenPage() {
                             <div className="w-8 h-8 bg-white rounded-full border-4 border-zinc-900"></div>
                         </div>
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-600 tracking-[-0.02em] mb-6 drop-shadow-xl">
+                    <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-green-600 tracking-[-0.02em] mb-6 drop-shadow-xl">
                         Jardín de Bulbasaur
                     </h1>
                     <p className="text-zinc-400 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
@@ -73,9 +73,9 @@ export function GardenPage() {
                 </div>
             </div>
 
-            <main className="max-w-6xl mx-auto px-6 relative">
+            <main className="max-w-6xl mx-auto px-6 relative mb-0">
                 {/* Connecting background line linking the sections vertically */}
-                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-emerald-500/0 via-emerald-500/20 to-emerald-500/0 -z-10" />
+                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-linear-to-b from-emerald-500/0 via-emerald-500/20 to-emerald-500/0 -z-10" />
 
                 <div className="space-y-20 md:space-y-32">
                     {areas.map((area, index) => (
@@ -90,7 +90,7 @@ export function GardenPage() {
                 </div>
             </main>
 
-            <BackToTopButton />
+            <BackToTopButton theme="emerald" />
         </div>
     );
 }
