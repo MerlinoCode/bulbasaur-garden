@@ -5,7 +5,7 @@
 <h1 align="center">🌿 Bulbasaur Garden</h1>
 
 <p align="center">
-  <em>A premium, fan-made Pokémon encyclopaedia and immersive digital experience built with modern web technologies.</em>
+  <em>A premium, fan-made Pokémon encyclopedia and immersive digital experience built with modern web technologies.</em>
 </p>
 
 ---
